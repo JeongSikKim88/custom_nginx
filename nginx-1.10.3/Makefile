@@ -14,7 +14,7 @@ modules:
 	$(MAKE) -f objs/Makefile modules
 
 upgrade:
-	/usr/sbin/nginx -t
+	/usr/local/nginx/sbin/nginx -t
 
 	kill -USR2 `cat /usr/local/nginx/logs/nginx.pid`
 	sleep 1

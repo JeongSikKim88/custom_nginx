@@ -1,7 +1,7 @@
-#define NGX_CONFIGURE " --prefix=/usr/local/nginx --sbin-path=/usr/sbin/nginx --with-cc-opt=-Wno-error --with-select_module --with-poll_module --with-threads --with-file-aio --with-http_realip_module --with-http_sub_module --with-http_flv_module --with-http_mp4_module --with-http_image_filter_module --with-http_gunzip_module --with-http_gzip_static_module --with-http_slice_module --with-http_geoip_module --with-http_v2_module --with-pcre=../pcre-8.44 --with-pcre-jit --with-zlib=../zlib-1.2.11 --with-http_ssl_module --add-module=../nginx-module-vts --add-module=../nginx-rtmp-module --add-module=../headers-more-nginx-module --add-module=../ngx_http_lower_upper_case --add-module=../nginx_upstream_check_module --add-module=../nginx-aws-auth-module --add-module=../nginx-let-module --with-http_secure_link_module --add-module=../nginx-vod-module --with-threads --with-file-aio"
+#define NGX_CONFIGURE " --prefix=/usr/local/nginx --add-module=../ngx_http_proxy_connect_module"
 
 #ifndef NGX_COMPILER
-#define NGX_COMPILER  "gcc 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04) "
+#define NGX_COMPILER  "gcc 4.8.5 20150623 (Red Hat 4.8.5-39) (GCC) "
 #endif
 
 
@@ -155,11 +155,6 @@
 
 #ifndef NGX_HAVE_ACCEPT4
 #define NGX_HAVE_ACCEPT4  1
-#endif
-
-
-#ifndef NGX_HAVE_FILE_AIO
-#define NGX_HAVE_FILE_AIO  1
 #endif
 
 
@@ -318,21 +313,6 @@
 #endif
 
 
-#ifndef NGX_THREADS
-#define NGX_THREADS  1
-#endif
-
-
-#ifndef NGX_HAVE_SELECT
-#define NGX_HAVE_SELECT  1
-#endif
-
-
-#ifndef NGX_HAVE_POLL
-#define NGX_HAVE_POLL  1
-#endif
-
-
 #ifndef NGX_HTTP_CACHE
 #define NGX_HTTP_CACHE  1
 #endif
@@ -348,48 +328,13 @@
 #endif
 
 
-#ifndef NGX_HTTP_GZIP
-#define NGX_HTTP_GZIP  1
-#endif
-
-
-#ifndef NGX_HTTP_V2
-#define NGX_HTTP_V2  1
-#endif
-
-
-#ifndef NGX_HTTP_GZIP
-#define NGX_HTTP_GZIP  1
-#endif
-
-
 #ifndef NGX_CRYPT
 #define NGX_CRYPT  1
 #endif
 
 
-#ifndef NGX_HTTP_REALIP
-#define NGX_HTTP_REALIP  1
-#endif
-
-
 #ifndef NGX_HTTP_X_FORWARDED_FOR
 #define NGX_HTTP_X_FORWARDED_FOR  1
-#endif
-
-
-#ifndef NGX_HTTP_X_FORWARDED_FOR
-#define NGX_HTTP_X_FORWARDED_FOR  1
-#endif
-
-
-#ifndef NGX_HTTP_X_FORWARDED_FOR
-#define NGX_HTTP_X_FORWARDED_FOR  1
-#endif
-
-
-#ifndef NGX_HTTP_SSL
-#define NGX_HTTP_SSL  1
 #endif
 
 
@@ -403,33 +348,8 @@
 #endif
 
 
-#ifndef NGX_STAT_STUB
-#define NGX_STAT_STUB  1
-#endif
-
-
-#ifndef NGX_HTTP_UPSTREAM_CHECK
-#define NGX_HTTP_UPSTREAM_CHECK  1
-#endif
-
-
-#ifndef NGX_HAVE_ZLIB
-#define NGX_HAVE_ZLIB  1
-#endif
-
-
-#ifndef NGX_HAVE_OPENSSL_EVP
-#define NGX_HAVE_OPENSSL_EVP  1
-#endif
-
-
-#ifndef NGX_HAVE_ICONV
-#define NGX_HAVE_ICONV  1
-#endif
-
-
-#ifndef NGX_HAVE_CLOCK_GETTIME
-#define NGX_HAVE_CLOCK_GETTIME  1
+#ifndef NGX_HTTP_PROXY_CONNECT
+#define NGX_HTTP_PROXY_CONNECT  1
 #endif
 
 
@@ -443,13 +363,8 @@
 #endif
 
 
-#ifndef NGX_OPENSSL
-#define NGX_OPENSSL  1
-#endif
-
-
-#ifndef NGX_SSL
-#define NGX_SSL  1
+#ifndef NGX_OPENSSL_MD5
+#define NGX_OPENSSL_MD5  1
 #endif
 
 
@@ -458,23 +373,18 @@
 #endif
 
 
-#ifndef NGX_OPENSSL_MD5
-#define NGX_OPENSSL_MD5  1
-#endif
-
-
 #ifndef NGX_HAVE_MD5
 #define NGX_HAVE_MD5  1
 #endif
 
 
-#ifndef NGX_HAVE_OPENSSL_SHA1_H
-#define NGX_HAVE_OPENSSL_SHA1_H  1
+#ifndef NGX_HAVE_SHA1
+#define NGX_HAVE_SHA1  1
 #endif
 
 
-#ifndef NGX_HAVE_SHA1
-#define NGX_HAVE_SHA1  1
+#ifndef NGX_HAVE_OPENSSL_SHA1_H
+#define NGX_HAVE_OPENSSL_SHA1_H  1
 #endif
 
 
@@ -494,7 +404,7 @@
 
 
 #ifndef NGX_SBIN_PATH
-#define NGX_SBIN_PATH  "/usr/sbin/nginx"
+#define NGX_SBIN_PATH  "sbin/nginx"
 #endif
 
 
@@ -564,6 +474,6 @@
 
 
 #ifndef NGX_GROUP
-#define NGX_GROUP  "nogroup"
+#define NGX_GROUP  "nobody"
 #endif
 
